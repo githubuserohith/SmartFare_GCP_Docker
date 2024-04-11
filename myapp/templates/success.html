@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+	<div id="box">
+		<img id="succes-icon" src="{% static 'check.png' %}">
+		<h4>Your payment of Rs {{amount}} is successfull</h4>
+		<div>Check wallet balance? <a href="{% url 'wallet' %}">Wallet</a></div>
+	</div>
+
+{% endblock content %}

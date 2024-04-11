@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Your Current Balance:</h4>
+                    <p class="card-text">Rs {{ wallet_balance }}</p>
+                    {% if wallet_balance > 0 %}
+                        <p class="card-text">You have funds available in your wallet.</p>
+                    {% else %}
+                        <p class="card-text">Your wallet balance is empty.</p>
+                    {% endif %}
+                    <a href="{% url 'payment' %}" class="btn btn-primary">Make a Payment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

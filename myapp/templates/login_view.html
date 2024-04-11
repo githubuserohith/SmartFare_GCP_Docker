@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <form method="POST" class="card p-5">
+                <div class="text-primary text-center mb-3">
+                    <h4><b>LOGIN</b></h4>
+                </div>
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control mb-3" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" name="submit_login" value="submitted" class="btn btn-success btn-md mb-3">Login</button>
+                </div>
+                <div class="text-center mb-1">
+                    <a href="{% url 'forgot_pwd' %}">Forgot your password?</a>
+                </div>
+                <div class="text-center mb-1">
+                    <span class="text-muted">OR</span>
+                </div>
+                <div class="text-center mb-2">
+                    <a href="{% url 'otp' %}">Login with OTP</a>
+                </div>
+                <div class="text-center">
+                    Not a member? <a href="{% url 'signup' %}">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

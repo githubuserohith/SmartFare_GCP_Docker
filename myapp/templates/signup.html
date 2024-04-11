@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="signup-form">
+    <form method="POST" class="px-3">
+        <div class="form-header">
+            <h4 class="text-primary">SIGN UP</h4>
+        </div>
+        {% csrf_token %}
+        <div class="form-content">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" name="signup" class="btn btn-success">Sign up</button>
+        <div class="form-footer">
+            <p>Already have an account? <a href="{% url 'login_view' %}">Login</a></p>
+        </div>
+    </form>
+</div>
+{% endblock %}

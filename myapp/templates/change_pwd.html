@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<br>
+
+<form method="POST" class="px-3">
+     <div class="text text-primary">
+        <h4><b>Change Password</b></h4><br>
+    </div>
+    {% csrf_token %}
+    <input type="password" name="old_pwd" placeholder="Old password"> <br><br>
+    <input type="password" name="new_pwd1" placeholder="New password"> <br><br>
+    <input type="password" name="new_pwd2" placeholder="Confirm new password"> <br><br>
+    <button type="submit" name="change_pwd" value="change password" class="btn btn-success">Confirm</button>
+
+</form>
+
+{% endblock %}

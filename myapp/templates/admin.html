@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="mb-4">Webcam Snapshot</h3>
+            <form method="POST" class="px-3">
+                {% csrf_token %}
+                <!-- Update the class attribute to use the new CSS classes for styling -->
+                <button type="submit" name="board_cam" value="start" class="btn-board">
+                    <i class="bi bi-camera"></i> Boarding Webcam
+                </button>
+                <button type="submit" name="deboard_cam" value="start" class="btn-deboard">
+                    <i class="bi bi-camera"></i> Deboarding Webcam
+                </button>
+                <p>Press <kbd>ESC</kbd> to exit</p>
+            </form>
+        </div>
+    </div>
+    <div id="recognized-names-container">
+        <!-- Container to display recognized names -->
+        <b>Boarded passenger names</b>
+        {% for name in boarding_names %}
+            <p>{{ name }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <b>Deboarded passenger names</b>
+        {% for name in deboarding_names %}
+            <p>{{ name }}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

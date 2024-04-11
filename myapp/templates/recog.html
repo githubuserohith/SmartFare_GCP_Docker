@@ -1,0 +1,20 @@
+<!-- admin.html -->
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- JavaScript to update recognized names dynamically -->
+<script>
+    // Function to update recognized names
+    function updateRecognizedNames(name) {
+        var container = document.getElementById("recognized-names-container");
+        var paragraph = document.createElement("p");
+        paragraph.innerText = "Recognized Name: " + name;
+        container.appendChild(paragraph);
+    }
+</script>
+
+<!-- Update recognized names from Django context -->
+{% for name in recognized_names %}
+    <script>updateRecognizedNames("{{ name }}");</script>
+{% endfor %}
+{% endblock %}
